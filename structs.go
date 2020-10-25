@@ -11,7 +11,7 @@ type TextGrid struct {
 }
 
 type IntervalTier struct {
-	Class     string		`json:"name"`
+	Class     string		`json:"class"`
 	Name      string		`json:"name"`
 	Xmin      float64		`json:"xmin"`
 	Xmax      float64		`json:"xmax"`
@@ -21,12 +21,12 @@ type IntervalTier struct {
 
 type Interval struct {
 	Xmin float64	`json:"xmin"`
-	Xmax float64	`json:"float64"`
+	Xmax float64	`json:"xmax"`
 	Text string		`json:"text"`
 }
 
 type TextTier struct {
-	Class  string`json:"name"`
+	Class  string	`json:"class"`
 	Name   string	`json:"name"`
 	Xmin   float64	`json:"xmin"`
 	Xmax   float64	`json:"xmax"`
