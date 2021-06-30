@@ -1,3 +1,6 @@
+// Package praatgo provides tools to interpret and process
+// Praat output and input objects as defined in 
+// https://www.fon.hum.uva.nl/praat/manual/Types_of_objects 
 package praatgo
 
 import (
@@ -6,9 +9,10 @@ import (
 	"regexp"
 )
 
+// DeserializeTextGrid recurses the content of a TextGrid file 
+// and returns its values into tg  
 func DeserializeTextGrid(input []byte) (tg TextGrid, err error) {
 	content := bytes.ReplaceAll(input, []byte("\x00"), []byte{}) // praat usually writes null bytes between characters
-	// tg := TextGrid{}
 	pattern := regexp.MustCompile(`"(.*?)"`)
 	headers := pattern.FindAllSubmatch(content, 2)
 	if !bytes.Equal(headers[1][1], []byte("TextGrid")) {
